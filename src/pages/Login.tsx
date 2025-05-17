@@ -141,7 +141,7 @@ const Login = () => {
             </TabsList>
             
             <TabsContent value="buyer">
-              <BuyerLoginForm 
+              {/* <BuyerLoginForm 
                 email={email}
                 setEmail={setEmail}
                 password={password}
@@ -159,11 +159,11 @@ const Login = () => {
                 >
                   Use demo buyer credentials
                 </Button>
-              </div>
+              </div> */}
             </TabsContent>
             
             <TabsContent value="seller">
-              <SellerLoginForm
+              {/*<SellerLoginForm
                 email={email}
                 setEmail={setEmail}
                 password={password}
@@ -181,11 +181,11 @@ const Login = () => {
                 >
                   Use demo seller credentials
                 </Button>
-              </div>
+              </div>*/}
             </TabsContent>
           </Tabs>
 
-          <AuthDivider />
+          {/*<AuthDivider />*/}
 
           <div className="space-y-4">
             <Button
