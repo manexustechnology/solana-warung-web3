@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import Index from "./pages/Index";
@@ -28,7 +28,25 @@ import SellerUsers from "./pages/seller/Users";
 import AIAssistant from "./components/ui/AIAssistant";
 import { PrivyAuthProvider } from "./context/privy";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      staleTime: 30000,
+    },
+  },
+});
+
+const MainLayout = ({ children }: { children: React.ReactNode }) => (
+  <>
+    <Header />
+    <main className="flex-grow">
+      {children}
+    </main>
+    <Footer />
+    <AIAssistant />
+  </>
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -42,54 +60,11 @@ const App = () => (
               <div className="flex flex-col min-h-screen">
                 <Routes>
                   {/* Routes with main layout (Header + Footer) */}
-                  <Route path="/" element={
-                    <>
-                      <Header />
-                      <main className="flex-grow">
-                        <Index />
-                      </main>
-                      <Footer />
-                      <AIAssistant />
-                    </>
-                  } />
-                  <Route path="/products" element={
-                    <>
-                      <Header />
-                      <main className="flex-grow">
-                        <Products />
-                      </main>
-                      <Footer />
-                      <AIAssistant />
-                    </>
-                  } />
-                  <Route path="/product/:productId" element={
-                    <>
-                      <Header />
-                      <main className="flex-grow">
-                        <ProductDetail />
-                      </main>
-                      <Footer />
-                      <AIAssistant />
-                    </>
-                  } />
-                  <Route path="/login" element={
-                    <>
-                      <Header />
-                      <main className="flex-grow">
-                        <Login />
-                      </main>
-                      <Footer />
-                    </>
-                  } />
-                  <Route path="/signup" element={
-                    <>
-                      <Header />
-                      <main className="flex-grow">
-                        <Signup />
-                      </main>
-                      <Footer />
-                    </>
-                  } />
+                  <Route path="/" element={<MainLayout><Index /></MainLayout>} />
+                  <Route path="/products" element={<MainLayout><Products /></MainLayout>} />
+                  <Route path="/product/:productId" element={<MainLayout><ProductDetail /></MainLayout>} />
+                  <Route path="/login" element={<MainLayout><Login /></MainLayout>} />
+                  <Route path="/signup" element={<MainLayout><Signup /></MainLayout>} />
                   
                   {/* Seller Dashboard Routes (No Header/Footer) */}
                   <Route path="/seller/dashboard" element={<SellerDashboard />} />
@@ -105,15 +80,7 @@ const App = () => (
                   <Route path="/seller/users" element={<SellerUsers />} />
                   
                   {/* Catch-all route */}
-                  <Route path="*" element={
-                    <>
-                      <Header />
-                      <main className="flex-grow">
-                        <NotFound />
-                      </main>
-                      <Footer />
-                    </>
-                  } />
+                  <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
                 </Routes>
               </div>
             </WalletProvider>
