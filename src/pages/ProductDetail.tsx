@@ -4,7 +4,7 @@ import { Star, Shield, ArrowLeft, ChevronRight, ShoppingCart, Share2 } from 'luc
 import AIAssistant from '../components/ui/AIAssistant';
 import { useWallet } from '../context/WalletContext';
 import { useToast } from '../hooks/use-toast';
-import { useCurrencyRates } from '@/hooks/useCurrencyRates';
+import { useCurrencyRates } from '@/hooks/use-currency-rates';
 
 // Sample product data
 const products = [
@@ -286,14 +286,16 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            <div className="text-3xl font-bold flex items-center space-x-2">
-              <span>{product.price} USDC</span>
-              <span className="text-lg text-muted-foreground">
-                ({(product.price * solanaRate).toFixed(4)} SOL)
-              </span>
-            </div>
-            <div className="text-sm text-muted-foreground">
-              ≈ Rp {(product.price * idrRate).toLocaleString()} IDR
+            <div className="price-container space-y-2">
+              <div className="text-3xl font-bold flex items-center space-x-2">
+                <span>{product.price} USDC</span>
+                <span className="text-lg text-muted-foreground">
+                  ({(product.price * solanaRate).toFixed(4)} SOL)
+                </span>
+              </div>
+              <div className="text-sm text-muted-foreground">
+                ≈ Rp {(product.price * idrRate).toLocaleString()} IDR
+              </div>
             </div>
 
             <p className="text-muted-foreground">{product.description}</p>

@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Send, ExternalLink, Phone } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useCurrencyRates } from '@/hooks/use-currency-rates';
 
 interface CartItem {
   product: {
@@ -45,6 +46,7 @@ const ReceiptDialog = ({
   const receiptRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   const [phoneNumber, setPhoneNumber] = React.useState('');
+  const { solanaRate, idrRate } = useCurrencyRates();
   
   const generateReceiptText = () => {
     const formattedDate = new Date().toLocaleString();
@@ -174,7 +176,15 @@ const ReceiptDialog = ({
               </div>
               <div className="text-sm font-bold flex justify-between pt-1 border-t mt-1">
                 <span>TOTAL:</span>
-                <span>{total.toFixed(2)} USDC</span>
+                <div className="flex flex-col gap-1 text-right">
+                  <div className="text-lg font-bold">{total.toFixed(2)} USDC</div>
+                  <div className="text-sm text-muted-foreground">
+                    ({(total * solanaRate).toFixed(4)} SOL)
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    ≈ Rp {(total * idrRate).toLocaleString()} IDR
+                  </div>
+                </div>
               </div>
             </div>
             

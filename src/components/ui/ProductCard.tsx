@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Star, Clock } from 'lucide-react';
-import { useCurrencyRates } from '@/hooks/useCurrencyRates';
+import { useCurrencyRates } from '@/hooks/use-currency-rates';
 
 export interface Product {
   id: string;

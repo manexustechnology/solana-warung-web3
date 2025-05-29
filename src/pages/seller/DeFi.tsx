@@ -224,11 +224,11 @@ const DeFi = () => {
                       
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
-                          <div className="bg-blue-100 p-2 rounded-full">
+                          <div className="p-2 rounded-full bg-blue-100">
                             <RefreshCw className="h-4 w-4 text-blue-600" />
                           </div>
                           <div>
-                            <p className="text-sm font-medium">Swapped SOL for SPT</p>
+                            <p className="text-sm font-medium">Swapped SOL for USDC</p>
                             <p className="text-xs text-muted-foreground">1 day ago</p>
                           </div>
                         </div>
