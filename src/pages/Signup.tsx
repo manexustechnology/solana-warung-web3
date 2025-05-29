@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
@@ -101,7 +100,7 @@ const Signup = () => {
             Create an Account
           </CardTitle>
           <CardDescription className="text-center">
-            Sign up to DeFi Warung WEB3
+            Sign up to Warung AI
           </CardDescription>
         </CardHeader>
         <CardContent>

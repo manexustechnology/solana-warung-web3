@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -25,6 +24,8 @@ import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
 import { useWallet } from '@/context/WalletContext';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const DeFi = () => {
   const { user } = useAuth();
@@ -438,6 +439,20 @@ const DeFi = () => {
             </Card>
           </TabsContent>
         </Tabs>
+
+        <div className="mb-4">
+          <Label>Select Currency</Label>
+          <Select defaultValue="usdc">
+            <SelectTrigger>
+              <SelectValue placeholder="Select currency" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="usdc">USDC</SelectItem>
+              <SelectItem value="sol">SOL</SelectItem>
+              <SelectItem value="idr">IDR</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
     </SellerLayout>
   );

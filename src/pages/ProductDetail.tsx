@@ -4,6 +4,7 @@ import { Star, Shield, ArrowLeft, ChevronRight, ShoppingCart, Share2 } from 'luc
 import AIAssistant from '../components/ui/AIAssistant';
 import { useWallet } from '../context/WalletContext';
 import { useToast } from '../hooks/use-toast';
+import { useCurrencyRates } from '@/hooks/useCurrencyRates';
 
 // Sample product data
 const products = [
@@ -179,6 +180,7 @@ const ProductDetail = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const { solanaRate, idrRate } = useCurrencyRates();
 
   if (!product) {
     return (
@@ -284,7 +286,15 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            <div className="text-3xl font-bold">{product.price} ALGO</div>
+            <div className="text-3xl font-bold flex items-center space-x-2">
+              <span>{product.price} USDC</span>
+              <span className="text-lg text-muted-foreground">
+                ({(product.price * solanaRate).toFixed(4)} SOL)
+              </span>
+            </div>
+            <div className="text-sm text-muted-foreground">
+              ≈ Rp {(product.price * idrRate).toLocaleString()} IDR
+            </div>
 
             <p className="text-muted-foreground">{product.description}</p>
 
@@ -346,7 +356,7 @@ const ProductDetail = () => {
             <div className="glass p-4 rounded-xl flex items-center">
               <Shield className="h-5 w-5 text-accent mr-3 flex-shrink-0" />
               <p className="text-sm">
-                <span className="font-medium">Secure Transaction:</span> All purchases are protected by our escrow system and blockchain validation on Algorand.
+                <span className="font-medium">Secure Transaction:</span> All purchases are protected by our escrow system and blockchain validation on Solana.
               </p>
             </div>
           </div>

@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Star, Clock } from 'lucide-react';
+import { useCurrencyRates } from '@/hooks/useCurrencyRates';
 
 export interface Product {
   id: string;
@@ -21,6 +21,7 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const { id, name, description, price, rating, image, category, isNew, timeLeft } = product;
+  const { solanaRate, idrRate } = useCurrencyRates();
 
   return (
     <div className="glass-card overflow-hidden group animate-fade-in">
@@ -57,7 +58,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
               </div>
             </div>
             <div className="text-right">
-              <p className="font-semibold text-lg">{price} NEAR</p>
+              <div className="flex flex-col items-end">
+                <p className="font-semibold text-lg">{price} USDC</p>
+                <p className="text-sm text-muted-foreground">
+                  ({(price * solanaRate).toFixed(4)} SOL)
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  ≈ Rp {(price * idrRate).toLocaleString()} IDR
+                </p>
+              </div>
             </div>
           </div>
           <p className="text-sm text-muted-foreground mt-2 line-clamp-2">{description}</p>

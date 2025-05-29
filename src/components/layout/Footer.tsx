@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Twitter, Linkedin } from 'lucide-react';
@@ -9,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">DeFi Warung Web3</h3>
+            <h3 className="text-lg font-semibold">Warung AI</h3>
             <p className="text-sm text-muted-foreground">
               A marketplace powered by blockchain technology and AI agents, 
               designed to make transactions seamless and intelligent.

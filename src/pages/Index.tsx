@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Hero from '../components/home/Hero';
 import FeaturedProducts from '../components/home/FeaturedProducts';
@@ -40,7 +39,7 @@ const Index = () => {
               </div>
               <h3 className="text-xl font-semibold mb-3">Connect & Pay</h3>
               <p className="text-muted-foreground">
-                Connect your wallet and pay with NEAR tokens in a secure and transparent transaction.
+                Connect your wallet and pay with SOL or USDC in a secure and transparent transaction.
               </p>
             </div>
             

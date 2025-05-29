@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
@@ -127,7 +126,7 @@ const Login = () => {
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-center">
-            Login to DeFi Warung WEB3
+            Login to Warung AI
           </CardTitle>
           <CardDescription className="text-center">
             Sign in to your account or connect your Solana wallet

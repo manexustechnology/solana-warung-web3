@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
@@ -64,9 +63,9 @@ const SellerLayout: React.FC<SellerLayoutProps> = ({ children }) => {
         <div className={cn("p-4", isCollapsed && "flex justify-center")}>
           <Link to="/" className={cn("flex items-center", isCollapsed ? "justify-center" : "space-x-2")}>
             {!isCollapsed ? (
-              <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">DeFi Warung WEB3</span>
+              <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Warung AI</span>
             ) : (
-              <span className="text-xl font-bold">DW</span>
+              <span className="text-xl font-bold">WA</span>
             )}
           </Link>
         </div>

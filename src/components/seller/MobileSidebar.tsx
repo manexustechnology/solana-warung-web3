@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -31,7 +30,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({ user }) => {
             <div className="p-4">
               <Link to="/" className="flex items-center space-x-2" onClick={() => setOpen(false)}>
                 <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-                  DeFi Agent Store
+                  Warung AI
                 </span>
               </Link>
             </div>
@@ -53,7 +52,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({ user }) => {
       
       <Link to="/" className="flex items-center space-x-2">
         <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-          DeFi Agent Store
+          Warung AI
         </span>
       </Link>
       

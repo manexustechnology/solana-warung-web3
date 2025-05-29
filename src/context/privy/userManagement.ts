@@ -1,4 +1,3 @@
-
 import { supabase } from '@/integrations/supabase/client';
 import { User, UserRole } from '@/types/auth';
 import { ToastProps } from '@/components/ui/toast';
@@ -85,7 +84,7 @@ export async function loadUserDataFromSupabase(
         };
         
         toast({
-          title: 'Welcome to DeFi Warung WEB3',
+          title: 'Welcome to Warung AI',
           description: 'Your account has been created successfully.',
         });
         

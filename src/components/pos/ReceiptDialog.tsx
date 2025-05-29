@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
@@ -51,18 +50,18 @@ const ReceiptDialog = ({
     const formattedDate = new Date().toLocaleString();
     const transactionNumber = Math.floor(Math.random() * 1000000);
     
-    let messageText = `🧾 *DeFi Agent Store Receipt*\n`;
+    let messageText = `🧾 *Warung AI Receipt*\n`;
     messageText += `📅 ${formattedDate}\n`;
     messageText += `🔢 Transaction #${transactionNumber}\n\n`;
     messageText += `*Items:*\n`;
     
     cart.forEach((item) => {
-      messageText += `- ${item.product.name} x${item.quantity}: $${(item.product.price * item.quantity).toFixed(2)}\n`;
+      messageText += `- ${item.product.name} x${item.quantity}: ${(item.product.price * item.quantity).toFixed(2)} USDC\n`;
     });
     
-    messageText += `\n*Subtotal:* $${subtotal.toFixed(2)}\n`;
-    messageText += `*Tax (10%):* $${tax.toFixed(2)}\n`;
-    messageText += `*TOTAL:* $${total.toFixed(2)}\n\n`;
+    messageText += `\n*Subtotal:* ${subtotal.toFixed(2)} USDC\n`;
+    messageText += `*Tax (10%):* ${tax.toFixed(2)} USDC\n`;
+    messageText += `*TOTAL:* ${total.toFixed(2)} USDC\n\n`;
     messageText += `Thank you for shopping with us!`;
     
     return encodeURIComponent(messageText);
@@ -143,7 +142,7 @@ const ReceiptDialog = ({
         <div className="max-h-96 overflow-auto">
           <div className="receipt" ref={receiptRef}>
             <div className="receipt-header text-center mb-4">
-              <h2 className="font-bold">DeFi Agent Store</h2>
+              <h2 className="font-bold">Warung AI</h2>
               <p className="text-sm">123 Market Street</p>
               <p className="text-sm">Transaction #{Math.floor(Math.random() * 1000000)}</p>
               <p className="text-sm">{new Date().toLocaleString()}</p>
@@ -153,13 +152,13 @@ const ReceiptDialog = ({
               <div className="text-sm font-semibold flex justify-between pb-1 border-b">
                 <span>Item</span>
                 <span>Qty</span>
-                <span>Price</span>
+                <span>Price (USDC)</span>
               </div>
               {cart.map((item) => (
                 <div key={item.product.id} className="text-sm flex justify-between">
                   <span className="w-1/2 truncate">{item.product.name}</span>
                   <span className="w-1/6 text-center">{item.quantity}</span>
-                  <span className="w-1/3 text-right">${(item.product.price * item.quantity).toFixed(2)}</span>
+                  <span className="w-1/3 text-right">{(item.product.price * item.quantity).toFixed(2)} USDC</span>
                 </div>
               ))}
             </div>
@@ -167,15 +166,15 @@ const ReceiptDialog = ({
             <div className="receipt-total space-y-1 pt-2 border-t">
               <div className="text-sm flex justify-between">
                 <span>Subtotal:</span>
-                <span>${subtotal.toFixed(2)}</span>
+                <span>{subtotal.toFixed(2)} USDC</span>
               </div>
               <div className="text-sm flex justify-between">
                 <span>Tax (10%):</span>
-                <span>${tax.toFixed(2)}</span>
+                <span>{tax.toFixed(2)} USDC</span>
               </div>
               <div className="text-sm font-bold flex justify-between pt-1 border-t mt-1">
                 <span>TOTAL:</span>
-                <span>${total.toFixed(2)}</span>
+                <span>{total.toFixed(2)} USDC</span>
               </div>
             </div>
             

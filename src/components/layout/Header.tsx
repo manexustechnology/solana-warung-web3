@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
@@ -43,7 +42,7 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">DeFi Warung WEB3</span>
+          <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">Warung AI</span>
         </Link>
 
         {/* Desktop Navigation */}

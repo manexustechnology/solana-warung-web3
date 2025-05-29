@@ -12,18 +12,18 @@ const Hero = () => {
             <div>
               <span className="tag bg-accent/10 text-accent font-medium">Blockchain Powered Marketplace</span>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mt-4 leading-tight">
-                The Future of <span className="text-accent">Shopping</span> is Decentralized
+                The Future of <span className="text-accent">Commerce</span> is Decentralized
               </h1>
               <p className="text-xl text-muted-foreground mt-6">
-                DeFi Agent Store combines blockchain technology and AI to create a seamless shopping experience on Solana.
+              WarungAI brings your neighborhood shop on-chain with AI-driven insights and DeFi services—letting micro-merchants accept crypto, stablecoins, e-wallets or cash, with instant WhatsApp receipts. 
               </p>
             </div>
-            
+            <p className="text-accent font-semibold text-lg">Starting on <span className="text-2xl">Solana</span>.</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/products" className="btn-primary flex items-center justify-center">
                 <span>Explore Products</span>
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              </Link> 
               <Link to="/about" className="btn-outline flex items-center justify-center">
                 Learn More
               </Link>
